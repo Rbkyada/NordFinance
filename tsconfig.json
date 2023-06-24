@@ -11,11 +11,26 @@
       "@Actions/*": [
         "./App/Actions/*"
       ],
+      "@Keys/*": [
+        "./App/Actions/Keys/*"
+      ],
       "@ApiConfig/*": [
         "./App/ApiConfig/*"
       ],
+      "@AppContext/*": [
+        "./App/AppContext/*"
+      ],
       "@Reducers/*": [
         "./App/Reducers/*"
+      ],
+      "@Default/*": [
+        "./App/Reducers/Default/*"
+      ],
+      "@Routes/*": [
+        "./App/Routes/*"
+      ],
+      "@Sagas/*": [
+        "./App/Sagas/*"
       ],
       "@Components/*": [
         "./App/Screens/Components/*"
@@ -26,6 +41,9 @@
       "@SubComponents/*": [
         "./App/Screens/SubComponents/*"
       ],
+      "@Stores/*": [
+        "./App/Stores/*"
+      ],
       "@Theme/*": [
         "./App/Theme/*"
       ],
@@ -34,6 +52,9 @@
       ],
       "@Utils/*": [
         "./App/Utils/*"
+      ],
+      "@Localization/*": [
+        "./App/Localization/*"
       ]
     },
     "allowJs": true,

@@ -25,6 +25,9 @@ let ApiConfig = {
   token: null as string | null,
   login: `${baseUrlApi}login`,
   user: `${baseUrlApi}users`,
+  getProductPools: `${baseUrlApi}product/all-pools`,
+  getCalculatorPools: `${baseUrlApi}product/calculator-for-pool`,
+  getCalCulatorDetails: `${baseUrlApi}product/calculator-details`,
 };
 
 export { ApiConfig };

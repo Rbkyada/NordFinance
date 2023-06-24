@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   GestureResponderEvent,
   StyleProp,
@@ -6,7 +6,7 @@ import {
   TextStyle,
 } from 'react-native';
 import LightTheme from '@Theme/LightTheme';
-import { fontSizes } from '@Utils/Constant';
+import { fontSizes, fonts } from '@Utils/Constant';
 
 interface CustomProps {
   size?: number;
@@ -23,7 +23,7 @@ interface CustomProps {
   onPress?: (event: GestureResponderEvent) => void;
   maxLength?: number;
 }
-const CustomText = (props: CustomProps) => {
+const CustomText = memo((props: CustomProps) => {
   const {
     size,
     xsmall,
@@ -71,10 +71,15 @@ const CustomText = (props: CustomProps) => {
     <Text
       {...props}
       numberOfLines={numberOfLines}
-      style={[getFontSize(), { color: LightTheme.text }, style && style]}>
+      style={[
+        getFontSize(),
+        { color: LightTheme.text },
+        fonts.Regular,
+        style && style,
+      ]}>
       {renderChildren()}
     </Text>
   );
-};
+});
 
 export { CustomText };

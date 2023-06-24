@@ -16,9 +16,23 @@ const LightTheme = {
   statusBar: 'dark-content',
   red: 'red',
   transparent: 'transparent',
+  white: ThemeColor.white,
+  green: ThemeColor.green,
   textBorder: ThemeColor.lightGray4,
   gray: ThemeColor.gray,
   overlay: ThemeColor.overlay,
+  secondary: ThemeColor.secondary,
+  lightRedText: ThemeColor.primaryTextLight,
+  dropDownBg: ThemeColor.primaryLight,
+  screenBackground: ThemeColor.screenBackgroundLight,
+  placeholderTxt: ThemeColor.primaryTextLight,
+  lightRed: ThemeColor.lightRed,
+  primaryText: ThemeColor.primaryTextLight,
+  profileModalBg: ThemeColor.white,
+  secondaryText: ThemeColor.secondaryTextLight,
+  LightGreen: ThemeColor.LightGreen,
+  LightRed: ThemeColor.LightRed,
+  darkText: 'rgba(37, 42, 72, 0.2)',
 };
 
 export default LightTheme;

@@ -1,5 +1,7 @@
 const ThemeColor = {
-  primary: '#1FA2FF',
+  primary: 'rgba(158, 172, 219, 1)',
+  primaryLight: 'rgba(158, 172, 219, 0.24)',
+  secondary: 'rgba(48, 79, 254, 1)',
   white: '#FFF',
   lighter: '#F3F3F3',
   light: '#DAE1E7',
@@ -14,11 +16,18 @@ const ThemeColor = {
   lightGray: '#8e8e93',
   lightGray2: '#aeaeb2',
   lightGray3: '#c7c7cc',
-  lightGray4: '#d1d1d6',
+  lightGray4: 'rgba(243, 243, 243, 1)',
   lightGray5: '#e5e5ea',
   lightGray6: '#f2f2f7',
-  gradient: ['#1FA2FF', '#12D8FA'],
+  LightGreen: 'rgba(0, 221, 154, 0.2)',
+  LightRed: 'rgba(255, 0, 0, 0.2)',
+  green: '#2BA24C',
+  gradient: ['rgba(158, 172, 219, 1)', 'rgba(48, 79, 254, 1)'],
   overlay: 'rgba(0,0,0,0.7)',
+  primaryTextLight: '#635347',
+  lightRed: 'rgba(160, 140, 125, 0.1)',
+  screenBackgroundLight: '#EFECE8',
+  secondaryTextLight: '#A08C7D',
 };
 
 export default ThemeColor;
