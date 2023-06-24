@@ -1,0 +1,15 @@
+{
+  "root": ".",
+  "base": "App",
+  "modules": [
+    "Actions",
+    "ApiConfig",
+    "Reducers",
+    "Screens/Components",
+    "Screens/CommonComponent",
+    "Screens/SubComponents",
+    "Theme",
+    "Services",
+    "Utils"
+  ]
+}
