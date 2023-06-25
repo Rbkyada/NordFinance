@@ -15,18 +15,20 @@ const styles = StyleSheet.create({
   },
   boxContainer: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
   },
   constInputStyle: {
     textAlign: 'center',
-    paddingHorizontal: 10,
+    paddingHorizontal: 16,
     paddingVertical: 2,
     marginRight: 10,
     minWidth: 50,
     borderRadius: 12,
     overflow: 'hidden',
     maxWidth: 80,
+  },
+  boxContainerStyle: {
+    paddingVertical: 4,
   },
 });
 
@@ -38,7 +40,8 @@ interface InvestedAmountContainerProps {
 const InvestedAmountContainer = (props: InvestedAmountContainerProps) => {
   const { value, setValue } = props;
 
-  const { container, boxContainer, constInputStyle } = styles;
+  const { container, boxContainer, constInputStyle, boxContainerStyle } =
+    styles;
 
   return (
     <View style={container}>
@@ -55,7 +58,7 @@ const InvestedAmountContainer = (props: InvestedAmountContainerProps) => {
         <BadgeBox
           title={en.USD}
           isImg={AppImages.icArrowDown}
-          textStyle={{ color: LightTheme.text }}
+          textStyle={[boxContainerStyle, { color: LightTheme.text }]}
         />
       </View>
     </View>

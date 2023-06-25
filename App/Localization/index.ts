@@ -10,6 +10,9 @@ const en = {
   SEARCH: 'Search',
   CALCULATE: 'Calculate',
   YEAR_ERROR: 'No data for chosen duration',
+  ERROR_INVESTED_IN: 'Please enter invested in',
+  ERROR_INVESTED_AMOUNT: 'Please select Invested Amount',
+  SEARCH_TYPE: 'Search Type',
 };
 
 export { en };

@@ -1,9 +1,9 @@
 import React from 'react';
 import { View } from 'react-native';
 import axios from 'axios';
+import CommonStyle from '@Theme/CommonStyle';
 import { HomeScreen } from '@Components/Home/HomeScreen';
 import { configureUrl, getHeaders } from '@Utils/Helper';
-import CommonStyle from '@Theme/CommonStyle';
 
 axios.interceptors.request.use(
   config => {
@@ -18,7 +18,7 @@ axios.interceptors.request.use(
 
 const index = () => {
   return (
-    <View style={CommonStyle.flex1}>
+    <View style={[CommonStyle.flex1]}>
       <HomeScreen />
     </View>
   );

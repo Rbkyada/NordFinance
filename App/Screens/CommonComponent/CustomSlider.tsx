@@ -8,9 +8,51 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import { fonts } from '@Utils/Constant';
 import { CustomText } from '@CommonComponent/CustomText';
 import { formatNumber, yearFormatter } from '@Utils/Helper';
+import { RangeEnums } from '@Theme/Enum';
+import { fonts } from '@Utils/Constant';
+
+const styles = StyleSheet.create({
+  label: { flex: 0.8, justifyContent: 'center' },
+  thumb: {
+    width: 10 * 2,
+    height: 10 * 2,
+    borderRadius: 15,
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 6,
+    borderWidth: 1,
+  },
+  rail: {
+    flex: 1,
+    height: 3,
+    borderRadius: 1,
+  },
+  railSelected: {
+    height: 4,
+    borderRadius: 1,
+  },
+  lableView: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 2,
+  },
+  sliderLabel: {
+    textAlign: 'center',
+    ...fonts.Bold,
+    padding: 5,
+  },
+  container: { width: '100%', paddingVertical: 15 },
+  labelContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+});
 
 interface CustomProps {
   min: number;
@@ -68,6 +110,23 @@ const CustomSlider = (props: CustomProps) => {
     />
   );
 
+  const renderLabel = () => {
+    return (
+      <View style={styles.labelContainer}>
+        {numRange?.map((item, index) => {
+          return (
+            <View key={index} style={{ ...styles.lableView }}>
+              <CustomText style={styles.sliderLabel}>
+                {(mode === RangeEnums.YEAR && yearFormatter(item)) ||
+                  formatNumber(item)}
+              </CustomText>
+            </View>
+          );
+        })}
+      </View>
+    );
+  };
+
   return (
     <View
       style={[styles.container, props.containerStyle && props.containerStyle]}>
@@ -85,79 +144,9 @@ const CustomSlider = (props: CustomProps) => {
         renderRail={renderRail}
         renderRailSelected={renderRailSelected}
       />
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}>
-        {numRange.map((item, index) => {
-          return (
-            <View key={index} style={{ ...styles.lableView }}>
-              <CustomText style={styles.sliderLabel}>
-                {(mode === 'year' && yearFormatter(item)) || formatNumber(item)}
-              </CustomText>
-            </View>
-          );
-        })}
-      </View>
+      {renderLabel()}
     </View>
   );
 };
 
 export default memo(CustomSlider);
-
-const styles = StyleSheet.create({
-  filterContainer: {
-    paddingTop: 10,
-  },
-  row: {
-    flexDirection: 'row',
-    borderBottomWidth: 1,
-    padding: 15,
-    height: 60,
-  },
-  label: { flex: 0.8, justifyContent: 'center' },
-  tickContainer: {
-    flex: 0.2,
-    justifyContent: 'center',
-    alignItems: 'flex-end',
-  },
-  filterContainer1: { width: '100%' },
-  thumb: {
-    width: 10 * 2,
-    height: 10 * 2,
-    borderRadius: 15,
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 6,
-    borderWidth: 1,
-  },
-  rail: {
-    flex: 1,
-    height: 3,
-    borderRadius: 1,
-  },
-  railSelected: {
-    height: 4,
-    borderRadius: 1,
-  },
-  lableView: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: 2,
-  },
-  lableView2: {
-    minWidth: 80,
-    borderRadius: 5,
-  },
-  sliderLabel: {
-    textAlign: 'center',
-    ...fonts.Bold,
-    padding: 5,
-  },
-  container: { width: '100%', paddingVertical: 15 },
-});

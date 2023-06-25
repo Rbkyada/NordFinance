@@ -1,11 +1,11 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import SimpleToast from 'react-native-simple-toast';
+import { StyleSheet, View } from 'react-native';
 import LightTheme from '@Theme/LightTheme';
 import CustomSlider from '@CommonComponent/CustomSlider';
 import AppImages from '@Theme/AppImages';
 import ThemeColor from '@Theme/Colors';
 import { Layout } from '@CommonComponent/Layout';
-import { StyleSheet, View } from 'react-native';
 import { CustomText } from '@CommonComponent/CustomText';
 import { INVESTED_TIMELINE, fonts, width } from '@Utils/Constant';
 import { en } from '@Localization/index';
@@ -13,7 +13,7 @@ import { BadgeBox } from '@SubComponents/BadgeBox';
 import { TimeLineContainer } from '@CommonComponent/TimeLineContainer';
 import { ButtonComponent } from '@SubComponents/AppButton';
 import { CategoryTitle } from '@SubComponents/CategoryTitle';
-import { formatNumber, getInvestMentCount, getWidth } from '@Utils/Helper';
+import { formatNumber, getInvestMentCount } from '@Utils/Helper';
 import { InvestedAmountContainer } from '@CommonComponent/InvestedAmountContainer';
 import { DropDownSheet } from '@SubComponents/DropDownSheet';
 import {
@@ -22,6 +22,7 @@ import {
   setCalculatorPools,
 } from '@Services/ProductService';
 import { PoolsList, poolDropDown } from '@Utils/Interface';
+import { CurrencyEnums, RangeEnums } from '@Theme/Enum';
 
 const styles = StyleSheet.create({
   btnStyle: {
@@ -66,6 +67,9 @@ const styles = StyleSheet.create({
   widthStyle: {
     width: '50%',
   },
+  heightStyle: {
+    height: 14,
+  },
 });
 
 const HomeScreen = () => {
@@ -79,6 +83,7 @@ const HomeScreen = () => {
     rowCatStyle,
     dropContainer,
     widthStyle,
+    heightStyle,
   } = styles;
 
   const [value, setValue] = useState(2000);
@@ -106,21 +111,21 @@ const HomeScreen = () => {
   }, [resultData]);
 
   const getInUSD = useMemo(() => {
-    let getMoney = '0 USDC';
+    let getMoney = `0 ${CurrencyEnums.USDC}`;
     if (resultData?.investedAmount?.investedAmountInUSD) {
       let worthNowInUSD = +resultData?.investedAmount?.worthNowInUSD;
-      getMoney = `${formatNumber(worthNowInUSD, 2)} USDC`;
+      getMoney = `${formatNumber(worthNowInUSD, 2)} ${CurrencyEnums.USDC}`;
     }
     return getMoney;
   }, [resultData]);
 
   const getInvestedAmount = useMemo(() => {
-    let getMoney = '0 USDC';
+    let getMoney = `0 ${CurrencyEnums.USDC}`;
     if (resultData?.investedAmount?.investedAmount) {
       getMoney = `${formatNumber(
         resultData?.investedAmount?.investedAmount,
         2,
-      )} USDC`;
+      )} ${CurrencyEnums.USDC}`;
     }
     return getMoney;
   }, [resultData]);
@@ -134,6 +139,9 @@ const HomeScreen = () => {
   }, []);
 
   const updateSlider = useCallback((e: number) => {
+    if (isNaN(e)) {
+      return;
+    }
     setValue(e);
   }, []);
 
@@ -167,10 +175,10 @@ const HomeScreen = () => {
     let isValid = true;
     if (!isSelectedPool) {
       isValid = false;
-      SimpleToast.show('Please select Invested In');
+      SimpleToast.show(en.ERROR_INVESTED_IN);
     } else if (value <= 0) {
       isValid = false;
-      SimpleToast.show('Please select Invested Amount');
+      SimpleToast.show(en.ERROR_INVESTED_AMOUNT);
     }
     return isValid;
   };
@@ -240,7 +248,7 @@ const HomeScreen = () => {
           dataList={poolsList}
           onFocus={() => setIsFocus(true)}
           onBlur={() => setIsFocus(false)}
-          placeholder={'Select Type'}
+          placeholder={en.SEARCH_TYPE}
           value={isSelectedPool}
           onSelectedChangeText={item => {
             setIsSelectedPoolId(item.value);
@@ -261,21 +269,21 @@ const HomeScreen = () => {
         <View>
           <CategoryTitle title={en.INVESTED_FROM} />
           {(selectedYear > poolsList[0]?.count.yearlyOptions && (
-            <CustomText style={[fonts.Regular, { color: LightTheme.red }]}>
+            <CustomText
+              style={[fonts.Medium, heightStyle, { color: LightTheme.red }]}>
               {en.YEAR_ERROR}
             </CustomText>
-          )) ||
-            null}
+          )) || <View style={heightStyle} />}
         </View>
         <BadgeBox
-          title={`${selectedYear} year`}
+          title={`${selectedYear} ${RangeEnums.YEAR}`}
           textStyle={{ color: LightTheme.text }}
           containerStyle={yearBoxStyle}
         />
       </View>
       <CustomSlider
         min={1}
-        mode="year"
+        mode={RangeEnums.YEAR}
         low={selectedYear}
         max={10}
         disableRange={true}

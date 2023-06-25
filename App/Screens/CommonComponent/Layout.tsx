@@ -57,7 +57,7 @@ const Layout = (props: LayoutProps) => {
   } = props;
 
   return (
-    <SafeAreaView style={[CommonStyle.flex1]}>
+    <SafeAreaView style={[CommonStyle.flex1]} testID="safeContainer">
       <StatusBar backgroundColor={LightTheme.themeColor} />
       <KeyboardAvoidingView
         behavior="padding"
@@ -69,6 +69,7 @@ const Layout = (props: LayoutProps) => {
             keyboardShouldPersistTaps="always"
             bounces={bounces}
             contentContainerStyle={[styles.scrollContainer, { padding }]}
+            testID="scrollContainer"
             refreshControl={
               (refreshControl && (
                 <RefreshControl

@@ -52,8 +52,6 @@ export const yearFormatter = (year: number) => {
   return `${Math.round(year)} yrs`;
 };
 
-export const getWidth = (width: number | string) => ({ width: width });
-
 export const getInvestMentCount = (year: number, range: number) => {
   return Math.floor((365 * year) / INVESTED_TIMELINE[range].value);
 };

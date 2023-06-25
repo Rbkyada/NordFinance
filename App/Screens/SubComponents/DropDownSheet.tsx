@@ -6,6 +6,7 @@ import { fonts, isIOS } from '@Utils/Constant';
 import { CustomText, NetworkImage } from '@CommonComponent/index';
 import { en } from '@Localization/index';
 import { getSize } from '@Utils/Helper';
+import { poolDropDown } from '@Utils/Interface';
 
 const styles = StyleSheet.create({
   dropContainer: {
@@ -45,10 +46,25 @@ const styles = StyleSheet.create({
   iconStyle: {
     marginRight: 15,
   },
+  rightImgStyle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    marginRight: 5,
+  },
+  textPropsStyle: {
+    marginLeft: 4,
+    flexShrink: 1,
+    ...fonts.Medium,
+  },
+  renderLeftIcon: {
+    ...getSize(30),
+    borderRadius: 10,
+  },
 });
 
 interface DropDownProps {
-  dataList: any;
+  dataList: poolDropDown[];
   isFocus: boolean;
   search?: boolean;
   value: string;
@@ -78,6 +94,9 @@ const DropDownSheet = memo((props: DropDownProps) => {
     labelStyle,
     errorTxt,
     dropTitleStyle,
+    rightImgStyle,
+    textPropsStyle,
+    renderLeftIcon,
   } = styles;
 
   const {
@@ -111,6 +130,7 @@ const DropDownSheet = memo((props: DropDownProps) => {
       )}
       <View style={[dropContainer, dropContainerStyle]}>
         <Dropdown
+          testID="drop"
           data={dataList}
           labelField="label"
           valueField={valueField}
@@ -148,22 +168,21 @@ const DropDownSheet = memo((props: DropDownProps) => {
           selectedTextProps={{
             style: {
               color: LightTheme.placeholderTxt,
-              marginLeft: 4,
-              flexShrink: 1,
-              ...fonts.Medium,
+              ...textPropsStyle,
             },
           }}
           renderLeftIcon={() => {
             return (
-              <NetworkImage
-                resizeMode="contain"
-                source={rightImg()}
-                imageStyle={{
-                  width: 20,
-                  height: 20,
-                  borderRadius: 10,
-                }}
-              />
+              <>
+                {(rightImg() && (
+                  <NetworkImage
+                    resizeMode="contain"
+                    source={rightImg()}
+                    imageStyle={rightImgStyle}
+                  />
+                )) ||
+                  null}
+              </>
             );
           }}
           renderItem={(item: any, selected) => {
@@ -180,12 +199,7 @@ const DropDownSheet = memo((props: DropDownProps) => {
                 <NetworkImage
                   resizeMode="contain"
                   source={item.img}
-                  imageStyle={[
-                    getSize(30),
-                    {
-                      borderRadius: 10,
-                    },
-                  ]}
+                  imageStyle={renderLeftIcon}
                 />
                 <CustomText
                   style={[{ color: LightTheme.lightText, flexShrink: 1 }]}>

@@ -60,6 +60,7 @@ const BadgeBox = memo((props: BadgeBoxProps) => {
       ]}>
       {rightImg && (
         <Image
+          testID="badge-right-image"
           source={{ uri: rightImg }}
           style={[getSize(10), rightImgStyle]}
         />
