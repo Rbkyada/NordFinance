@@ -53,6 +53,9 @@
       "@Utils/*": [
         "./App/Utils/*"
       ],
+      "@Jest/*": [
+        "./App/Jest/*"
+      ],
       "@Localization/*": [
         "./App/Localization/*"
       ]

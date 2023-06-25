@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InvestedAmountContainer renders correctly 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "marginTop": 20,
+    }
+  }
+>
+  <Text
+    numberOfLines={0}
+    style={
+      [
+        {
+          "fontSize": 18,
+        },
+        {
+          "color": "#1c1c1e",
+        },
+        {
+          "fontFamily": "DMSans-Regular",
+        },
+        [
+          {
+            "fontFamily": "DMSans-Bold",
+          },
+          {
+            "color": "rgba(158, 172, 219, 1)",
+          },
+          undefined,
+        ],
+      ]
+    }
+    xlarge={true}
+  >
+    Invested Amount
+  </Text>
+  <View
+    style={
+      {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <TextInput
+      keyboardType="numeric"
+      maxLength={7}
+      onChangeText={[Function]}
+      returnKeyType="done"
+      style={
+        [
+          {
+            "borderRadius": 12,
+            "marginRight": 10,
+            "maxWidth": 80,
+            "minWidth": 50,
+            "overflow": "hidden",
+            "paddingHorizontal": 16,
+            "paddingVertical": 2,
+            "textAlign": "center",
+          },
+          {
+            "backgroundColor": "rgba(243, 243, 243, 1)",
+          },
+        ]
+      }
+      value="1000"
+    />
+    <View
+      style={
+        [
+          {
+            "alignItems": "center",
+            "alignSelf": "flex-start",
+            "borderRadius": 12,
+            "flexDirection": "row",
+            "gap": 8,
+            "justifyContent": "center",
+            "overflow": "hidden",
+            "paddingHorizontal": 15,
+            "paddingVertical": 4,
+          },
+          {
+            "backgroundColor": "rgba(243, 243, 243, 1)",
+          },
+          undefined,
+        ]
+      }
+    >
+      <Text
+        numberOfLines={0}
+        small={true}
+        style={
+          [
+            {
+              "fontSize": 12,
+            },
+            {
+              "color": "#1c1c1e",
+            },
+            {
+              "fontFamily": "DMSans-Regular",
+            },
+            [
+              {
+                "color": "rgba(37, 42, 72, 0.2)",
+              },
+              [
+                {
+                  "paddingVertical": 4,
+                },
+                {
+                  "color": "#1c1c1e",
+                },
+              ],
+            ],
+          ]
+        }
+      >
+        USD
+      </Text>
+      <Image
+        resizeMode="contain"
+        source={
+          {
+            "uri": "arrow_down",
+          }
+        }
+        style={
+          {
+            "height": 10,
+            "width": 10,
+          }
+        }
+      />
+    </View>
+  </View>
+</View>
+`;

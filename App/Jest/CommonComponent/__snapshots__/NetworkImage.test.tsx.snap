@@ -1,0 +1,384 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NetworkImage component renders correctly with custom styles 1`] = `
+<View
+  style={
+    [
+      {
+        "height": 100,
+        "width": 100,
+      },
+      {
+        "height": 200,
+        "width": 200,
+      },
+      {
+        "borderRadius": 10,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "overflow": "hidden",
+        },
+        [
+          {
+            "height": 100,
+            "width": 100,
+          },
+          {
+            "height": 200,
+            "width": 200,
+          },
+        ],
+      ]
+    }
+  >
+    <FastImageView
+      defaultSource={null}
+      onFastImageError={[Function]}
+      onFastImageLoadEnd={[Function]}
+      onFastImageLoadStart={[Function]}
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/image.jpg",
+        }
+      }
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "height": 100,
+          "justifyContent": "center",
+          "position": "absolute",
+          "width": 100,
+        },
+        {
+          "height": 200,
+          "width": 200,
+        },
+        {
+          "borderRadius": 10,
+        },
+      ]
+    }
+  >
+    <ActivityIndicator />
+  </View>
+</View>
+`;
+
+exports[`NetworkImage component renders correctly with valid source 1`] = `
+<View
+  style={
+    [
+      {
+        "height": 100,
+        "width": 100,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "overflow": "hidden",
+        },
+        [
+          {
+            "height": 100,
+            "width": 100,
+          },
+          undefined,
+        ],
+      ]
+    }
+  >
+    <FastImageView
+      defaultSource={null}
+      onFastImageError={[Function]}
+      onFastImageLoadEnd={[Function]}
+      onFastImageLoadStart={[Function]}
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/image.jpg",
+        }
+      }
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "height": 100,
+          "justifyContent": "center",
+          "position": "absolute",
+          "width": 100,
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <ActivityIndicator />
+  </View>
+</View>
+`;
+
+exports[`NetworkImage component renders error image when isError is true 1`] = `
+<View
+  style={
+    [
+      {
+        "height": 100,
+        "width": 100,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "overflow": "hidden",
+        },
+        [
+          {
+            "height": 100,
+            "width": 100,
+          },
+          undefined,
+        ],
+      ]
+    }
+  >
+    <FastImageView
+      defaultSource={null}
+      onFastImageError={[Function]}
+      onFastImageLoadEnd={[Function]}
+      onFastImageLoadStart={[Function]}
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/non-existing-image.jpg",
+        }
+      }
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "height": 100,
+          "justifyContent": "center",
+          "position": "absolute",
+          "width": 100,
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <ActivityIndicator />
+  </View>
+</View>
+`;
+
+exports[`NetworkImage component renders loading container while loading 1`] = `
+<View
+  style={
+    [
+      {
+        "height": 100,
+        "width": 100,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "overflow": "hidden",
+        },
+        [
+          {
+            "height": 100,
+            "width": 100,
+          },
+          undefined,
+        ],
+      ]
+    }
+  >
+    <FastImageView
+      defaultSource={null}
+      onFastImageError={[Function]}
+      onFastImageLoadEnd={[Function]}
+      onFastImageLoadStart={[Function]}
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/image.jpg",
+        }
+      }
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "height": 100,
+          "justifyContent": "center",
+          "position": "absolute",
+          "width": 100,
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <ActivityIndicator />
+  </View>
+</View>
+`;
+
+exports[`NetworkImage component renders placeholder when isLoading is true 1`] = `
+<View
+  style={
+    [
+      {
+        "height": 100,
+        "width": 100,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <View
+    style={
+      [
+        {
+          "overflow": "hidden",
+        },
+        [
+          {
+            "height": 100,
+            "width": 100,
+          },
+          undefined,
+        ],
+      ]
+    }
+  >
+    <FastImageView
+      defaultSource={null}
+      onFastImageError={[Function]}
+      onFastImageLoadEnd={[Function]}
+      onFastImageLoadStart={[Function]}
+      resizeMode="cover"
+      source={
+        {
+          "uri": "https://example.com/image.jpg",
+        }
+      }
+      style={
+        {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      [
+        {
+          "alignItems": "center",
+          "height": 100,
+          "justifyContent": "center",
+          "position": "absolute",
+          "width": 100,
+        },
+        undefined,
+        undefined,
+      ]
+    }
+  >
+    <Image
+      source={
+        {
+          "uri": "https://example.com/placeholder.jpg",
+        }
+      }
+      style={
+        [
+          {
+            "height": 100,
+            "width": 100,
+          },
+          undefined,
+        ]
+      }
+    />
+  </View>
+</View>
+`;

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CustomText renders correctly 1`] = `
+<Text
+  numberOfLines={0}
+  style={
+    [
+      {
+        "fontSize": 14,
+      },
+      {
+        "color": "#1c1c1e",
+      },
+      {
+        "fontFamily": "DMSans-Regular",
+      },
+      undefined,
+    ]
+  }
+>
+  Test Text
+</Text>
+`;

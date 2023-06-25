@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonComponent renders correctly with processing state 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": true,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "marginVertical": 5,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <ActivityIndicator
+    color="#FFF"
+  />
+</View>
+`;
+
+exports[`ButtonComponent renders correctly with text-only mode 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "marginVertical": 5,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <Text
+    numberOfLines={0}
+    style={
+      [
+        {
+          "fontSize": 18,
+        },
+        {
+          "color": "#1c1c1e",
+        },
+        {
+          "fontFamily": "DMSans-Regular",
+        },
+        [
+          {
+            "color": "#FFF",
+          },
+        ],
+      ]
+    }
+    xlarge={true}
+  >
+    Submit
+  </Text>
+</View>
+`;
+
+exports[`ButtonComponent renders correctly with title 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "marginVertical": 5,
+      },
+      undefined,
+      undefined,
+    ]
+  }
+>
+  <Text
+    numberOfLines={0}
+    style={
+      [
+        {
+          "fontSize": 18,
+        },
+        {
+          "color": "#1c1c1e",
+        },
+        {
+          "fontFamily": "DMSans-Regular",
+        },
+        [
+          {
+            "color": "#FFF",
+          },
+        ],
+      ]
+    }
+    xlarge={true}
+  >
+    Submit
+  </Text>
+</View>
+`;
