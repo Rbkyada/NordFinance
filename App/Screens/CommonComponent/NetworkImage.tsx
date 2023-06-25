@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { memo, useState } from 'react';
 import {
   View,
   ActivityIndicator,
@@ -20,7 +20,7 @@ interface NetworkImageProps {
   resizeMode?: 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | any;
 }
 
-const NetworkImage = (props: NetworkImageProps) => {
+const NetworkImage = memo((props: NetworkImageProps) => {
   const [isLoading, setLoading] = useState(true);
   const [isError, setError] = useState(false);
 
@@ -89,7 +89,7 @@ const NetworkImage = (props: NetworkImageProps) => {
       {renderOverLayContainer()}
     </View>
   );
-};
+});
 
 const styles = StyleSheet.create({
   container: { height: 100, width: 100 },

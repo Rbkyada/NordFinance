@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { BadgeBox } from '@SubComponents/BadgeBox';
 import { INVESTED_TIMELINE, width } from '@Utils/Constant';
@@ -15,7 +15,7 @@ interface TimeLineContainerProps {
   setSelectedTimeLine: (e: string) => void;
 }
 
-const TimeLineContainer = (props: TimeLineContainerProps) => {
+const TimeLineContainer = memo((props: TimeLineContainerProps) => {
   const { container } = styles;
 
   const { selectedTimeline, setSelectedTimeLine } = props;
@@ -44,6 +44,6 @@ const TimeLineContainer = (props: TimeLineContainerProps) => {
       })}
     </View>
   );
-};
+});
 
 export { TimeLineContainer };

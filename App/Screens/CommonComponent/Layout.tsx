@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   KeyboardAvoidingView,
   StatusBar,
@@ -46,7 +46,7 @@ interface LayoutProps {
   removeContainerView?: boolean;
 }
 
-const Layout = (props: LayoutProps) => {
+const Layout = memo((props: LayoutProps) => {
   const {
     children,
     padding = 10,
@@ -91,7 +91,7 @@ const Layout = (props: LayoutProps) => {
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
-};
+});
 
 const styles = StyleSheet.create({
   keyboardView: {
