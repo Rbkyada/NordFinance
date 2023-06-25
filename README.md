@@ -10,7 +10,7 @@
 
 ## Development Environment Setup
 
-[React Native development environment setup](https://reactnative.dev/docs/environment-setup)
+[React Native environment setup](https://reactnative.dev/docs/environment-setup)
 
 ```bash
 # Node v18
