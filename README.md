@@ -2,7 +2,7 @@
 
 ### Android
 
-[Anidroid Apk Link](https://drive.google.com/file/d/1GMhQhfsXOoJcJOBo58aRxpfeQivfEFyo/view)
+[Anidroid Apk Link](https://drive.google.com/file/d/1GMhQhfsXOoJcJOBo58aRxpfeQivfEFyo/view?usp=sharing)
 
 ## Unit Test
 
