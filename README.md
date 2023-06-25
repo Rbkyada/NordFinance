@@ -6,7 +6,7 @@
 
 ## Unit Test
 
-<div align="center" style="margin:auto;width:100%;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;"><img src="https://iili.io/HPgXGgj.png"  width="200" height="400"/></div>
+<img src="https://iili.io/HPgXGgj.png"/>
 
 ## Development
 
