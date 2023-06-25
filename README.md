@@ -38,7 +38,7 @@ npm run ios
 ```
 
 ```bash
-# Run unit tests
+#Run Test Case
 yarn test
 or
 npm run test
