@@ -25,28 +25,28 @@ npm install
 
 ```bash
 # Run android
-npm run android
-or
 yarn run android
+or
+npm run android
 ```
 
 ```bash
 # Run ios
-npm run ios
-or
 yarn run ios
+or
+npm run ios
 ```
 
 ```bash
 # Run unit tests
-npm run test
-or
 yarn test
+or
+npm run test
 ```
 
 ```bash
-# Check test coverage
-npm run coverage
-or
+# Test coverage
 yarn coverage
+or
+npm run coverage
 ```
