@@ -13,6 +13,10 @@
 [React Native development environment setup](https://reactnative.dev/docs/environment-setup)
 
 ```bash
+# Node v18
+```
+
+```bash
 # Install dependencies
 yarn
 or
