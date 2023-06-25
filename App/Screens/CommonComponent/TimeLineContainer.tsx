@@ -6,14 +6,13 @@ import { INVESTED_TIMELINE, width } from '@Utils/Constant';
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
-    // alignSelf: 'flex-start',
     justifyContent: 'space-between',
   },
 });
 
 interface TimeLineContainerProps {
-  selectedTimeline: number;
-  setSelectedTimeLine: (e: number) => void;
+  selectedTimeline: string;
+  setSelectedTimeLine: (e: string) => void;
 }
 
 const TimeLineContainer = (props: TimeLineContainerProps) => {
@@ -24,11 +23,11 @@ const TimeLineContainer = (props: TimeLineContainerProps) => {
   return (
     <View style={container}>
       {INVESTED_TIMELINE.map((item, index) => {
-        let isSelected = selectedTimeline === item.value;
+        let isSelected = selectedTimeline === item.label;
         return (
           <Pressable
             key={index}
-            onPress={() => setSelectedTimeLine(item.value)}>
+            onPress={() => setSelectedTimeLine(item.label)}>
             <BadgeBox
               title={item.label}
               isSelect={isSelected}

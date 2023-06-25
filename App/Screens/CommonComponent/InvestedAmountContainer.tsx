@@ -38,8 +38,6 @@ interface InvestedAmountContainerProps {
 const InvestedAmountContainer = (props: InvestedAmountContainerProps) => {
   const { value, setValue } = props;
 
-  console.log('value', value);
-
   const { container, boxContainer, constInputStyle } = styles;
 
   return (

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import SimpleToast from 'react-native-simple-toast';
 import LightTheme from '@Theme/LightTheme';
 import CustomSlider from '@CommonComponent/CustomSlider';
 import AppImages from '@Theme/AppImages';
@@ -6,13 +7,13 @@ import ThemeColor from '@Theme/Colors';
 import { Layout } from '@CommonComponent/Layout';
 import { StyleSheet, View } from 'react-native';
 import { CustomText } from '@CommonComponent/CustomText';
-import { fonts, width } from '@Utils/Constant';
+import { INVESTED_TIMELINE, fonts, width } from '@Utils/Constant';
 import { en } from '@Localization/index';
 import { BadgeBox } from '@SubComponents/BadgeBox';
 import { TimeLineContainer } from '@CommonComponent/TimeLineContainer';
 import { ButtonComponent } from '@SubComponents/AppButton';
 import { CategoryTitle } from '@SubComponents/CategoryTitle';
-import { getWidth } from '@Utils/Helper';
+import { formatNumber, getInvestMentCount, getWidth } from '@Utils/Helper';
 import { InvestedAmountContainer } from '@CommonComponent/InvestedAmountContainer';
 import { DropDownSheet } from '@SubComponents/DropDownSheet';
 import {
@@ -62,6 +63,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  widthStyle: {
+    width: '50%',
+  },
 });
 
 const HomeScreen = () => {
@@ -74,10 +78,11 @@ const HomeScreen = () => {
     yearBoxStyle,
     rowCatStyle,
     dropContainer,
+    widthStyle,
   } = styles;
 
-  const [value, setValue] = useState(0);
-  const [selectedTimeline, setSelectedTimeLine] = useState(30);
+  const [value, setValue] = useState(2000);
+  const [selectedTimeline, setSelectedTimeLine] = useState('Weekly');
   const [selectedYear, setSelectedYear] = useState(3);
   const [isProcessing, setIsProcessing] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
@@ -101,18 +106,21 @@ const HomeScreen = () => {
   }, [resultData]);
 
   const getInUSD = useMemo(() => {
-    let getMoney = '0 USDT';
+    let getMoney = '0 USDC';
     if (resultData?.investedAmount?.investedAmountInUSD) {
       let worthNowInUSD = +resultData?.investedAmount?.worthNowInUSD;
-      getMoney = `${worthNowInUSD.toFixed(0)} USDT`;
+      getMoney = `${formatNumber(worthNowInUSD, 2)} USDC`;
     }
     return getMoney;
   }, [resultData]);
 
   const getInvestedAmount = useMemo(() => {
-    let getMoney = '0 USDT';
+    let getMoney = '0 USDC';
     if (resultData?.investedAmount?.investedAmount) {
-      getMoney = `${resultData?.investedAmount?.investedAmount} USDT`;
+      getMoney = `${formatNumber(
+        resultData?.investedAmount?.investedAmount,
+        2,
+      )} USDC`;
     }
     return getMoney;
   }, [resultData]);
@@ -121,7 +129,7 @@ const HomeScreen = () => {
     getProductPools();
   }, []);
 
-  const changeTimeLine = useCallback((e: number) => {
+  const changeTimeLine = useCallback((e: string) => {
     setSelectedTimeLine(e);
   }, []);
 
@@ -144,7 +152,7 @@ const HomeScreen = () => {
             value: item.id.toString(),
             label: item.poolName,
             img: item.poolImage,
-            count: result[index].data.yearlyOptions,
+            count: result[index].data,
           };
           newDta.push(newDataItem);
         });
@@ -155,13 +163,40 @@ const HomeScreen = () => {
     }
   };
 
+  const isValidation = () => {
+    let isValid = true;
+    if (!isSelectedPool) {
+      isValid = false;
+      SimpleToast.show('Please select Invested In');
+    } else if (value <= 0) {
+      isValid = false;
+      SimpleToast.show('Please select Invested Amount');
+    }
+    return isValid;
+  };
+
   const onCalculate = async () => {
+    if (!isValidation()) {
+      return;
+    }
+    if (selectedYear > poolsList[0].count.yearlyOptions) {
+      return;
+    }
     try {
       setIsProcessing(true);
+      let poolData = poolsList[0].count;
+      let newInvestMentCount = 0;
+      Object?.keys(poolData).find((item, index) => {
+        if (item.includes(selectedTimeline.toLowerCase())) {
+          newInvestMentCount = index;
+        }
+      });
+      const frqDay = INVESTED_TIMELINE[newInvestMentCount].value;
+
       const params = {
         poolId: +isSelectedPool,
-        frqInDays: selectedTimeline,
-        investmentCount: selectedYear,
+        frqInDays: frqDay,
+        investmentCount: getInvestMentCount(selectedYear, newInvestMentCount),
         sipAmount: value.toString(),
       };
       const res = await setCalculatorPools(params);
@@ -192,7 +227,6 @@ const HomeScreen = () => {
       <InvestedAmountContainer value={value} setValue={updateSlider} />
       <CustomSlider
         min={0}
-        max={100}
         low={value}
         max={21000}
         disableRange={true}
@@ -224,7 +258,15 @@ const HomeScreen = () => {
         />
       </View>
       <View style={yearContainer}>
-        <CategoryTitle title={en.INVESTING_SINCE} />
+        <View>
+          <CategoryTitle title={en.INVESTED_FROM} />
+          {(selectedYear > poolsList[0]?.count.yearlyOptions && (
+            <CustomText style={[fonts.Regular, { color: LightTheme.red }]}>
+              {en.YEAR_ERROR}
+            </CustomText>
+          )) ||
+            null}
+        </View>
         <BadgeBox
           title={`${selectedYear} year`}
           textStyle={{ color: LightTheme.text }}
@@ -234,7 +276,6 @@ const HomeScreen = () => {
       <CustomSlider
         min={1}
         mode="year"
-        max={100}
         low={selectedYear}
         max={10}
         disableRange={true}
@@ -243,16 +284,13 @@ const HomeScreen = () => {
         onChange={(low: any, high: any) => setSelectedYear(low)}
       />
       <View style={rowCatStyle}>
-        <CategoryTitle title={en.INVESTING_SINCE} textStyle={getWidth('50%')} />
+        <CategoryTitle title={en.INVESTED_MONEY} textStyle={widthStyle} />
         <CustomText xlarge style={[fonts.Bold, { color: ThemeColor.primary }]}>
           {getInvestedAmount}
         </CustomText>
       </View>
       <View style={rowCatStyle}>
-        <CategoryTitle
-          title={en.MONEY_YOU_WOULD_HAVE}
-          textStyle={getWidth('50%')}
-        />
+        <CategoryTitle title={en.MONEY_YOU_WOULD_HAVE} textStyle={widthStyle} />
         <View>
           <CustomText xxlarge style={[fonts.Bold, { color: LightTheme.green }]}>
             {getInUSD}

@@ -1,7 +1,13 @@
 import React, { memo, useEffect, useState } from 'react';
 import Slider from 'rn-range-slider';
 import LightTheme from '@Theme/LightTheme';
-import { StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import {
+  GestureResponderEvent,
+  StyleProp,
+  StyleSheet,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { fonts } from '@Utils/Constant';
 import { CustomText } from '@CommonComponent/CustomText';
 import { formatNumber, yearFormatter } from '@Utils/Helper';
@@ -16,7 +22,7 @@ interface CustomProps {
   low: number;
   high?: number;
   onChange: (low: any, high: any) => void;
-  onTouchEnd?: (low: any, high: any) => void;
+  onTouchEnd?: ((event: GestureResponderEvent) => void) | undefined;
 }
 const CustomSlider = (props: CustomProps) => {
   const { min, max, disableRange, low, high, onChange, onTouchEnd, mode } =
