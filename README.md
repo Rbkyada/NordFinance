@@ -8,7 +8,7 @@
 
 <img src="https://iili.io/HPgXGgj.png"/>
 
-## Development
+## Development Environment Setup
 
 [React Native development environment setup](https://reactnative.dev/docs/environment-setup)
 
